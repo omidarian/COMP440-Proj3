@@ -63,6 +63,13 @@ delete from blogs;
 delete from follows;
 delete from hobbies;
 
+delete from users where username in ('Ben', 'Mery', 'Shery', 'Lily', 'john');
+
+insert into users values ('john', 'pass1234', 'John', 'Johnson', 'john@yahoo.com');
+insert into users values ('Ben', '1234', 'Ben', 'Sben', 'ben@yahoo.com');
+insert into users values ('Mery', '1234', 'Mery', 'Tylor', 'mery@yahoo.com'); 
+insert into users values ('Shery', '1234', 'Shery', 'Sadee', 'Shery@yahoo.com');
+insert into users values ('Lily', '1234', 'Lily', 'Brod', 'lily@yahoo.com');
 
 insert into hobbies values('Ben', 'hiking');
 insert into hobbies values('Ben', 'swimming');

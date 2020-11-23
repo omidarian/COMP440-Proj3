@@ -127,8 +127,6 @@ if(isset($_POST['report3']))
 // 4. Display all the users who never posted a blog.
 if(isset($_POST['report4']))
 {
-    $userX = $_POST['userX'];
-    $userY = $_POST['userY'];
     echo "<div><h3> Display all the users who never posted a blog. </h3></div></div>";
     $sql = "select username as Username, firstName as 'First Name', lastName as 'Last Name'  from users where username not in (select distinct(postuser) from blogs)";
     $result = mysqli_query($con, $sql);
@@ -155,8 +153,6 @@ if(isset($_POST['report4']))
 // 5. Display all the users who posted some comments, but each of them is negative.
 if(isset($_POST['report5']))
 {
-    $userX = $_POST['userX'];
-    $userY = $_POST['userY'];
     echo "<div><h3> Display all the users who posted some comments, but each of them is negative. </h3></div></div>";
     $sql = "select username as Username, firstName as 'First Name', lastName as 'Last Name' from users where username not in (select distinct(author) from comments where sentiment = 'Positive') and username in (select distinct(author) from comments)";
     $result = mysqli_query($con, $sql);
@@ -182,8 +178,6 @@ if(isset($_POST['report5']))
 // 6. Display those users such that all the blogs they posted so far never received any negative comments.
 if(isset($_POST['report6']))
 {
-    $userX = $_POST['userX'];
-    $userY = $_POST['userY'];
     echo "<div><h3> Display those users such that all the blogs they posted so far never received any negative comments. </h3></div></div>";
     $sql = "select username as Username, firstName as 'First Name', lastName as 'Last Name' from users where username not in (select distinct(postuser) from blogs b inner join comments c on b.blogid = c.blogid where sentiment = 'Negative') and username in (select distinct(postuser) from blogs)";
     $result = mysqli_query($con, $sql);
