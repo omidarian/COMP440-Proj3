@@ -33,7 +33,7 @@
             $result = mysqli_fetch_array(mysqli_query($con, $sql),MYSQLI_ASSOC);
             $sqltags = "select * from blogstags where blogid = $bId";
             $resultTags = mysqli_query($con, $sqltags);
-            $stringTags;
+            $stringTags="";
             while($row = mysqli_fetch_array($resultTags)){
                 $stringTags .= $row['tag'];
                 $stringTags .= ", ";
